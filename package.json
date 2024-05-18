@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "postcss src/styles.css -o dist/styles.css",
+    "watch": "postcss src/styles.css -o dist/styles.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7"
+  }
+}
