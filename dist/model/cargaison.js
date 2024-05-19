@@ -1,4 +1,4 @@
-class Cargaison {
+export class Cargaison {
     libelle;
     poids;
     dateDepart;

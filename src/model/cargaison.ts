@@ -1,7 +1,7 @@
 import { IModel } from "./interfaces";
 import { Produit } from "./produit";
 
-abstract class Cargaison implements IModel {
+export abstract class Cargaison implements IModel {
      libelle : string
     poids : number
     dateDepart : Date
