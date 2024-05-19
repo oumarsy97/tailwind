@@ -1,10 +1,10 @@
 import { IModel } from "./interfaces";
 
- class Produit implements IModel {
+ export class Produit implements IModel {
     libelle : string
     poids : number
-    type: string
-    degres: number;
+    type: string = "materiel"
+    degres: number = 0;
     constructor(libelle : string, poids : number) {
         this.libelle = libelle
         this.poids = poids
@@ -15,7 +15,7 @@ import { IModel } from "./interfaces";
     }
 }
 
-class Alimentaire extends Produit {
+export class Alimentaire extends Produit {
 
     constructor(libelle : string, poids : number) {
         super(libelle, poids)
@@ -23,7 +23,7 @@ class Alimentaire extends Produit {
     }
 }
 
-class Chimique extends Produit {
+export class Chimique extends Produit {
     degres : number
 
     constructor(libelle : string, poids : number, degres : number) {
@@ -41,7 +41,7 @@ abstract class Materiel extends Produit {
     }
 }
 
-class Fragile extends Materiel {
+export class Fragile extends Materiel {
 
     constructor(libelle : string, poids : number) {
         super(libelle, poids)
@@ -49,11 +49,10 @@ class Fragile extends Materiel {
     }
 }
 
-class Incassable extends Materiel {
+export class Incassable extends Materiel {
 
     constructor(libelle : string, poids : number) {
         super(libelle, poids)
     }
 }
 
-export {Produit, Alimentaire, Chimique, Materiel, Fragile, Incassable}

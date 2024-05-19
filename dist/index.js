@@ -1,4 +1,5 @@
-
+import {Cargaison, Maritime, Routiere, Aerienne} from "./model/cargaison"
+<script  src="../dist/test.js" defer></script>
 
 const form = document.querySelector('#form')
 form.addEventListener('submit', (event) => {

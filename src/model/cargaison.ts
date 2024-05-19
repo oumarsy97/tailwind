@@ -88,7 +88,7 @@ public getProduits() {
 
 }
 
-class Maritime extends Cargaison {
+export class Maritime extends Cargaison {
     constructor(libelle : string, poids : number, dateDepart : Date, dateArrivee : Date, distance : number) {
         super(libelle, poids,  dateDepart, dateArrivee, distance)
 
@@ -111,7 +111,7 @@ class Maritime extends Cargaison {
     
 }
 
-class Routiere extends Cargaison {
+export class Routiere extends Cargaison {
     constructor(libelle : string, poids : number, dateDepart : Date, dateArrivee : Date, distance : number) {
         super(libelle, poids,  dateDepart, dateArrivee, distance)
     }
@@ -130,7 +130,7 @@ class Routiere extends Cargaison {
 
 }
 
-class Aerienne extends Cargaison {
+export class Aerienne extends Cargaison {
     constructor(libelle : string, poids : number, dateDepart : Date, dateArrivee : Date, distance : number) {
         super(libelle, poids,  dateDepart, dateArrivee, distance)
     }
@@ -149,4 +149,4 @@ class Aerienne extends Cargaison {
 
 }
 
-export {Cargaison, Maritime, Routiere, Aerienne}
+
