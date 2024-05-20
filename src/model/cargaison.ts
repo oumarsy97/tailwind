@@ -2,11 +2,11 @@ import { IModel } from "./interfaces";
 import { Produit } from "./produit";
 
 export abstract class Cargaison implements IModel {
-     libelle : string
-    poids : number
-    dateDepart : Date
-    dateArrivee : Date
-    distance : number
+  public   libelle : string
+   public poids : number
+   private dateDepart : Date
+   private dateArrivee : Date
+   private distance : number
     protected produits: Produit[] = [];
 
      constructor(libelle : string, poids : number,  dateDepart : Date, dateArrivee : Date, distance : number) {
@@ -95,13 +95,13 @@ export class Maritime extends Cargaison {
     }
 
     calculFrais( produit : Produit):number {
-       switch (produit.type) {
+       switch (produit.getType()) {
            case "alimentaire":
-               return (90*produit.poids*this.distance + 5000)
+               return (90*produit.poids*this.getDistance() + 5000)
            case "chimique":
-               return (500*produit.poids*produit.degres)
-           case "materiel":
-               return 400*produit.poids*this.distance
+               return (500*produit.poids*produit.getDegres())
+           case "incassable":
+               return 400*produit.poids*this.getDistance()
           default:
                return 0
        }
@@ -117,11 +117,12 @@ export class Routiere extends Cargaison {
     }
 
     calculFrais( produit : Produit) {
-        switch (produit.type) {
+        switch (produit.getType()) {
             case "alimentaire":
-                return 100*produit.poids*this.distance 
-            case "materiel":
-                return 200*produit.poids*this.distance
+                return 100*produit.poids*this.getDistance() 
+            case "incassable":
+            case "fragile":
+                return 200*produit.poids*this.getDistance()
             default:
                 return 0
         }
@@ -136,10 +137,11 @@ export class Aerienne extends Cargaison {
     }
 
     calculFrais( produit : Produit) {
-        switch (produit.type) {
+        switch (produit.getType()) {
             case "alimentaire":
-                return 300*produit.poids*this.distance 
-            case "materiel":
+                return 300*produit.poids*this.getDistance() 
+            case "fragile":
+            case "incassable":
                 return 1000*produit.poids
             default:
                 return 0

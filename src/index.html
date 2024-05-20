@@ -8,16 +8,16 @@
 <body class="bg-gray-100">
   <div class="flex">
     <!-- Sidebar -->
-    <div class="bg-gray-200 w-60 h-screen   text-blanc font-bold">
+    <div class="bg-gray-200 w-60 h-screen   text-blanc font-bold " id="sidebar">
       <div class="p-8">
-        <img src="./img/menu.png" alt="">
+        <img src="./img/logo.png" alt="" class="w-40 h-40 rounded-full ">
       </div>
       <div class="p-8 mb-4">
         <h2 class="text-xl font-semibold mb-2 ">Menu</h2>
-        <ul class="space-y-2">
-          <li class="text-gray-700 w-full"><a href="#" class="text-gray-700 hover:text-gray-900 hover:bg-gray-300 h-6 p-2 rounded w-screen">Dashboard</a></li>
-          <li><a href="#" class="text-gray-700 hover:text-gray-900 hover:bg-gray-300 h-6 p-2 rounded w-full">Cargaison</a></li>
-          <li><a href="#" class="text-gray-700 hover:text-gray-900 hover:bg-gray-300 h-6 p-2 rounded w-full">Produit</a></li>
+        <ul class="space-y-2 w-full">
+          <li class="text-gray-700 w-full"><a href="#" class="text-gray-700 hover:text-gray-900 hover:bg-gray-300 h-6 p-2 rounded w-full" id="Dashboard">Dashboard</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-gray-900 hover:bg-gray-300 h-6 p-2 rounded w-full" id="menucargaison">Cargaison</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-gray-900 hover:bg-gray-300 h-6 p-2 rounded w-full" id="menuproduit">Produit</a></li>
         </ul>
       </div>
       
@@ -28,7 +28,7 @@
         <div class="container  h-20  flex justify-between ">
           <div class="flex justify-between items-center py-4 w-full">
             <div class="flex items-center justify-start">
-              <a href="#" class="text-gray-700 font-semibold text-lg"><img src="./img/menu.png" alt="" class="h-20 w-20"></a>
+              <a href="#" class="text-gray-700 font-semibold text-lg"><img src="./img/menu.png" alt="" class="h-20 w-20" id="menu" value="menu"></a>
                <form class="flex items-center">
                   <input type="text" class="border border-gray-300 p-2 rounded-md w-full ml-4" placeholder="Rechercher...">
                 </form>
@@ -46,13 +46,7 @@
       
       <div class="container mx-auto p-4">
         <!-- dashboard -->
-        <div class=" flex-col md:flex-row hidden">
-          <div class="bg-white shadow-md rounded-lg p-4 mb-4 md:mr-4">
-            <h2 class="text-xl font-semibold mb-2">Dashboard</h2>
-            <p class="text-gray-600">Welcome to your dashboard!</p>
-          </div>
-      <!-- fin dashboard -->
-      <!-- cargaison  -->
+        <div class=" flex-col md:flex-row hidden" id="menuDashboard">
           <div class="container mx-auto p-4">
             <div class="flex flex-col md:flex-row">
               <div class="bg-white shadow-md rounded-lg p-4 mb-4 md:mr-4">
@@ -88,72 +82,142 @@
               </div>
             </div>
           </div>
-      
         </div>
-        <div class="bg-white shadow-md rounded-lg p-4 mt-4 w-full">
-          
+      <!-- fin dashboard -->
+      <!-- cargaison  -->     
+        <div class="bg-white shadow-md rounded-lg p-4 mt-4 w-full hidden" id="Divcargaison">
           <h2 class="text-xl font-semibold mb-2">Liste des Cargaisons</h2>
           <div class="w-full flex justify-between mb-4">
-            <p></p>
-            <button class="bg-blue-500 text-white px-4 py-2 rounded-md" id="addcargaison">Ajouter</button>
+              <div class="flex  gap-2 md:flex-row justify-center items-center w-120">
+                <label for="" class=" text-blue-500  block text-xl font-medium"> Filtre</label>
+                <div class="relative">
+                <select name="type" id="type" class=" h-5 p-2 rounded w-auto">
+                    <option value="aerienne">Aérienne</option>
+                    <option value="maritime">Maritime</option>
+                    <option value="terrestre">Terrestre</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+                </div>
+
+              </div>
+            
+            <button class="bg-blue-500 text-white  px-4 py-2 rounded-md" id="addcargaison">Ajouter</button>
           </div>
 
           <div class="w-full">
-            <div class="grid grid-cols-6 gap-4 h-auto" id="cargaisons">
-
-              <div class="bg-gray-200 shadow-md rounded-lg p-4 h-60 w-60">
-                <h2 class="text-xl font-semibold mb-2">Cargaison 1</h2>
-                <p class="text-red-600">Description</p>
-                <p class="text-gray-600">Date</p>
-                <p class="text-gray-600">Status</p>
-                <p class="text-gray-600">Total</p>
+            <div class="grid grid-cols-5 md:grid-cols-3 gap-4 h-auto" id="cargaisons">
+              <!--liste des cargaisons-->
               </div>
-              <div class="bg-gray-200 shadow-md rounded-lg p-4 h-60 w-60">
-                <h2 class="text-xl font-semibold mb-2">Cargaison 1</h2>
-                <p class="text-gray-600">Description</p>
-                <p class="text-gray-600">Date</p>
-                <p class="text-gray-600">Status</p>
-                <p class="text-gray-600">Total</p>
-              </div>
-
             </div>
-            
-        
+        </div>
+      <!-- fin cargaison  -->
+      <!-- produit  -->
+      <div class="bg-white shadow-md rounded-lg p-4 mt-4 w-full hidden" id="Divproduit">
+        <div class="w-full flex flex-col justify-between mb-4">
+          <div class="flex gap-4 justify-start items-center mb-2">
+            <button class=" bg-blue-500 text-white  px-4 py-2 rounded-md" id="retourcargaison">retour</button>
+            <h2 class="text-xl font-semibold mb-2">Liste des Produits</h2>
           </div>
-         <!-- <table class="table-auto w-full">
-            <thead>
-              <tr>
-                <th class="px-4 py-2">Order ID</th>
-                <th class="px-4 py-2">User</th>
-                <th class="px-4 py-2">Date</th>
-                <th class="px-4 py-2">Status</th>
-              <th class="px-4 py-2">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border px-4 py-2">12345</td>
-              <td class="border px-4 py-2">John Doe</td>
-              <td class="border px-4 py-2">2021-09-01</td>
-              <td class="border px-4 py-2 text-green-700">Completed</td>
-              <td class="border px-4 py-2">$100.00</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">67890</td>
-              <td class="border px-4 py-2">Jane Smith</td>
-              <td class="border px-4 py-2">2021-09-05</td>
-              <td class="border px-4 py-2 text-yellow-700">Pending</td>
-              <td class="border px-4 py-2">$50.00</td>
-            </tr>
-            <tr>
-              <td class="border px-4 py-2">34567</td>
-              <td class="border px-4 py-2">Bob Johnson</td>
-              <td class="border px-4 py-2">2021-09-10</td>
-              <td class="border px-4 py-2 text-red-700">Cancelled</td>
-              <td class="border px-4 py-2">$20.00</td>
-            </tr>
-          </tbody>
-        </table>-->
+          <div class="flex  gap-2 md:flex-row   w-80 mb-4">
+            <label for="" class=" text-blue-500  block text-xl font-medium"> Filtre</label>
+            <div class="relative">
+              <select name="type" id="type" class="h-5 p-2 rounded w-auto border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                <option value="alimentaire">Alimentaire</option>
+                <option value="chimique">Chimique</option>
+                <option value="fragile">Fragile</option>
+                <option value="incassable">Incassable</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l5-6h-3l5 6z"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full flex flex-col md:flex-row" id="tabproduit">
+            
+              <table class="w-full border border-gray-300">
+                <thead class="bg-gray-100" >
+                  <tr>
+                    <th class="p-2 border border-gray-300">Produit</th>
+                    <th class="p-2 border border-gray-300">Type</th>
+                    <th class="p-2 border border-gray-300">Poids</th>
+                    <th class="p-2 border border-gray-300">Prix</th>
+                    <th class="p-2 border border-gray-300">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="produit">
+                  <tr class="hover:bg-green-100">
+                    <td class="p-2 border border-gray-300">Produit 1</td>
+                    <td class="p-2 border border-gray-300">Alimentaire</td>
+                    <td class="p-2 border border-gray-300">100</td>
+                    <td class="p-2 border border-gray-300">10</td>
+                    <td class="p-2 border border-gray-300">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 border border-gray-300">Produit 2</td>
+                    <td class="p-2 border border-gray-300">Chimique</td>
+                    <td class="p-2 border border-gray-300">50</td>
+                    <td class="p-2 border border-gray-300">5</td>
+                    <td class="p-2 border border-gray-300">
+                    </td>
+                      
+                  </tr>
+                </tbody>
+              </table>
+              <!--liste des produits-->
+              
+            </div>
+        </div>
+      </div>
+      <!--**************************add produit*********************************-->
+          <div class="bg-white shadow-md rounded-lg p-4 mt-4 w-full " id="addproduit"">
+            <div class="flex gap-4 justify-start items-center mb-2">
+              <span class="bg-blue-500 text-white  px-4 py-2 rounded-full">1</span>
+              <h2 class="text-xl font-semibold mb-2">Ajouter un Produit</h2>
+            </div>
+            <div class="flex  flex-col w-80 mb-4 ">
+
+              <div class="flex gap-2 justify-between w-80">
+                <div>
+                  <label for="" class=" text-blue-500  block text-xl font-medium">Produit</label>
+                  <input type="text" class=" h-10 p-2 rounded" id="libelleproduit" value="" name="libelleproduit">
+                </div>
+
+                <div class="ml-4">
+                  <label for="" class=" text-blue-500  block text-xl font-medium">Type</label>
+                  <div class="relative">
+                    <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                      <option value="alimentaire">Alimentaire</option>
+                      <option value="chimique">Chimique</option>
+                      <option value="fragile">Fragile</option>
+                      <option value="incassable">Incassable</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l5-6h-3l5 6z"/></svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="" class=" text-blue-500  block text-xl font-medium">Poids</label>
+                  <input type="number" class="w-full h-10 p-2 rounded" id="poidsproduit" value="" name="poidsproduit">
+                </div>
+              </div>
+              <div class="flex gap-2 justify-between w-8 mt-4">
+                <label for="" class=" text-blue-500  block text-xl font-medium">Degres</label>
+                <input type="number" class="w-full h-10 p-2 rounded" id="degresproduit" value="" name="degresproduit">
+              </div>
+
+              <div class="flex gap-2 justify-between w-8 mt-4">
+                <p></p>
+                <button type="submit" class=" h-10 p-2 rounded bg-blue-500 text-white mt-2 mb-2 " id="suivant">Suivant</button>
+              </div>
+          </div>
+          </div>
+
       </div>
     </div>
 
@@ -186,7 +250,7 @@
           <select name="type" id="type" class="w-full h-10 p-2 rounded">
               <option value="aerienne">Aérienne</option>
               <option value="maritime">Maritime</option>
-              <option value="terrestre">Terrestre</option>
+              <option value="routiere">Routiere</option>
           </select>
         </div>
 
@@ -210,6 +274,8 @@
       <button class=" bg-transparent mt-2 absolute top-10 right-10 text-cyan-50" id="close">X</button>
      </div>
   </div>
+  <!--fin modal Cargaison-->
+  
   
 
   

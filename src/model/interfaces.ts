@@ -1,5 +1,5 @@
 interface IModel {
-   libelle : string;
+    libelle : string;
     poids : number;
 }
 
