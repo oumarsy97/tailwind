@@ -1,9 +1,7 @@
 export class Produit {
-    libelle;
-    poids;
-    type = "materiel";
-    degres = 0;
     constructor(libelle, poids) {
+        this.type = "materiel";
+        this.degres = 0;
         this.libelle = libelle;
         this.poids = poids;
     }

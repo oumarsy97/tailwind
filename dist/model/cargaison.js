@@ -1,11 +1,6 @@
 export class Cargaison {
-    libelle;
-    poids;
-    dateDepart;
-    dateArrivee;
-    distance;
-    produits = [];
     constructor(libelle, poids, dateDepart, dateArrivee, distance) {
+        this.produits = [];
         this.libelle = libelle;
         this.poids = poids;
         this.dateDepart = dateDepart;

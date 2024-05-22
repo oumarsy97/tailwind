@@ -42,9 +42,7 @@ import { IModel } from "./interfaces";
         this.type = type
     }
 
-    setDegres(degres : number) {
-        this.degres = degres
-    }
+  
 
 
 }
@@ -56,16 +54,19 @@ export class Alimentaire extends Produit {
         this.setType("alimentaire") 
     }
 }
-
+type Toxicity = 1 | 2 | 3| 4| 5| 6| 7| 8| 9| 10
 export class Chimique extends Produit {
+    
  
 
-    constructor(libelle : string, poids : number, degres : number) {
+    constructor(libelle : string, poids : number, degres : number, toxicity : Toxicity) {
         super(libelle, poids, )
         this.setType("chimique")
-        this.setDegres(degres)
+       
        
     }
+
+    
 }
 
 abstract class Materiel extends Produit {
